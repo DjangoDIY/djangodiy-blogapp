@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import Category, Comment, Post, Tag
+from djangodiy_blog_app.models import Category, Comment, Post, Tag
 # Register your models here.
 
 class CategoryAdmin(admin.ModelAdmin):
