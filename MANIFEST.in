@@ -1,0 +1,2 @@
+recursive-include djangodiy-blogapp/static *
+recursive-include djangodiy-blogapp/templates *

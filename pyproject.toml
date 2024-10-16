@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=75.1.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "djangodiy-blogapp"
+version = "0.1"
+dependencies = [
+    "django>=5.1.2"
+]
+description = "djangodiy-blogapp is a Django app that provides a full-featured blogging system, allowing users to create posts, categories, tags, and manage comments."
+readme = "README.rst"
+requires-python = ">= 3.10"
+authors = [
+    {name = "Pardeep Singh", email = "ipardeepsingh13@gmail.com"}
+]
+classifiers = [
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 5.1.2",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content"
+]
+
+[project.urls]
+GitHub = "https://github.com/DjangoDIY"
