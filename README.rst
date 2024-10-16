@@ -1,7 +1,7 @@
-djangodiy-blogapp
+djangodiy_blog_app
 =================
 
-djangodiy-blogapp is a Django app that provides a full-featured blogging system, allowing users to create posts, categories, tags, and manage comments.
+**djangodiy-blogapp** is a Django app that provides a full-featured blogging system, allowing users to create posts, categories, tags, and manage comments.
 
 Features
 --------
