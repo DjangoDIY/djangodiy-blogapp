@@ -1,7 +1,7 @@
 djangodiy_blog_app
 =================
 
-**djangodiy-blogapp** is a Django app that provides a full-featured blogging system, allowing users to create posts, categories, tags, and manage comments.
+djangodiy_blog_app is a Django app that provides a full-featured blogging system, allowing users to create posts, categories, tags, and manage comments.
 
 Features
 --------
@@ -10,31 +10,72 @@ Features
 - Commenting system to engage with visitors.
 - Easy to integrate into any Django project.
 
-Installation
-------------
-To install the app, run the following command:
+Getting Started
+=========================
 
-.. code-block:: bash
+To use the djangodiy-blogapp in your Django project, follow these steps:
 
-    pip install djangodiy-blogapp
+1. **Clone the Repository**
 
-After installation, add `'djangodiy_blogapp'` to your `INSTALLED_APPS` in your Django project settings:
+   First, you need to download your repository from GitHub. Open your terminal and run the following command:
 
-.. code-block:: python
+   .. code:: bash
 
-    INSTALLED_APPS = [
-        ...
-        'djangodiy_blogapp',
-        ...
-    ]
+      git clone https://github.com/DjangoDIY/djangodiy-blogapp.git
 
-Then, run migrations to create the necessary database tables:
+   This will create a directory named `djangodiy-blogapp` containing your project files.
 
-.. code-block:: bash
+2. **Navigate to the Directory**
 
-    python manage.py migrate
+   Change into the cloned repository directory:
 
-if you see an error then paste the below code in Project/settings.py
+   .. code:: bash
+
+      cd djangodiy-blogapp
+
+3. **Add the App to Your Project**
+
+   In your Django project's `settings.py`, add `'djangodiy_blog_app'` to the `INSTALLED_APPS` list:
+
+   .. code:: python
+
+      INSTALLED_APPS = [
+          ...
+          'djangodiy_blog_app',
+      ]
+
+4. **Run Migrations**
+
+   After adding the app, you need to apply the migrations. Run the following command:
+
+   .. code:: bash
+
+      python manage.py migrate
+
+5. **Run the Development Server**
+
+   Finally, start the Django development server to see your app in action:
+
+   .. code:: bash
+
+      python manage.py runserver
+
+6. **Update Project's urls.py file**
+
+   Finally, start the Django development server to see your app in action:
+
+   .. code:: python
+
+        from django.contrib import admin
+        from django.urls import path, include
+
+        urlpatterns = [
+            path('admin/', admin.site.urls),
+            path('blog/', include('djangodiy_blog_app.urls'))
+        ]
+
+
+if you see an error related to models then paste the below code in Project/settings.py
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
