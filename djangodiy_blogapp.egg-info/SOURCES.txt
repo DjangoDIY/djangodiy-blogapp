@@ -1,9 +1,0 @@
-LICENSE
-MANIFEST.in
-README.rst
-pyproject.toml
-djangodiy_blogapp.egg-info/PKG-INFO
-djangodiy_blogapp.egg-info/SOURCES.txt
-djangodiy_blogapp.egg-info/dependency_links.txt
-djangodiy_blogapp.egg-info/requires.txt
-djangodiy_blogapp.egg-info/top_level.txt

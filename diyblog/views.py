@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
-from djangodiy_blog_app.models import Post, Comment
-from djangodiy_blog_app.forms import CommentForm
+from diyblog.models import Post, Comment
+from diyblog.forms import CommentForm
 
 
 # Create your views here.

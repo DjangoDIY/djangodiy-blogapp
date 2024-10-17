@@ -1,7 +1,7 @@
-djangodiy_blog_app
+diyblog
 =================
 
-djangodiy_blog_app is a Django app that provides a full-featured blogging system, allowing users to create posts, categories, tags, and manage comments.
+diyblog is a Django app that provides a full-featured blogging system, allowing users to create posts, categories, tags, and manage comments.
 
 Features
 --------
@@ -13,7 +13,7 @@ Features
 Getting Started
 =========================
 
-To use the djangodiy-blogapp in your Django project, follow these steps:
+To use the diyblog in your Django project, follow these steps:
 
 1. **Clone the Repository**
 
@@ -21,7 +21,7 @@ To use the djangodiy-blogapp in your Django project, follow these steps:
 
    .. code:: bash
 
-      git clone https://github.com/DjangoDIY/djangodiy-blogapp.git
+      git clone https://github.com/DjangoDIY/diyblog.git
 
    This will create a directory named `djangodiy-blogapp` containing your project files.
 
@@ -31,7 +31,7 @@ To use the djangodiy-blogapp in your Django project, follow these steps:
 
    .. code:: bash
 
-      cd djangodiy-blogapp
+      cd diyblog
 
 3. **Add the App to Your Project**
 
@@ -41,7 +41,7 @@ To use the djangodiy-blogapp in your Django project, follow these steps:
 
       INSTALLED_APPS = [
           ...
-          'djangodiy_blog_app',
+          'diyblog',
       ]
 
 4. **Run Migrations**
@@ -71,7 +71,7 @@ To use the djangodiy-blogapp in your Django project, follow these steps:
 
         urlpatterns = [
             path('admin/', admin.site.urls),
-            path('blog/', include('djangodiy_blog_app.urls'))
+            path('blog/', include('diyblog.urls'))
         ]
 
 

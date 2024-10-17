@@ -1,2 +1,4 @@
-recursive-include djangodiy-blogapp/static *
-recursive-include djangodiy-blogapp/templates *
+include README.md
+include LICENSE
+recursive-include diyblog/static *
+recursive-include diyblog/templates *
