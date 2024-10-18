@@ -1,3 +1,6 @@
+For full documentation, please visit: https://djangodiy.github.io/docs/
+
+
 diyblog
 =================
 
