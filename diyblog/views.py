@@ -1,5 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
-from diyblog.models import Post, Comment
+from django.http import HttpResponseForbidden
+from django.contrib.auth.decorators import permission_required
+from diyblog.models import Post, Comment, Category, Tag
 from diyblog.forms import CommentForm
 
 
@@ -17,33 +19,51 @@ def blog_index(request):
 
 # blog_details will render the full blog post, with related comments, and forms (if-any)
 
-def blog_details(requst, blog_id):
-    post = Post.objects.get(pk = blog_id)
+def blog_details(request, blog_id):
+    post = Post.objects.get(pk=blog_id)
     form = CommentForm()
-    if requst.method == "POST":
-        form = CommentForm(requst.POST)
-        if form.is_valid():
-            comment = Comment(
-                author = form.cleaned_data("author"),
-                body = form.cleaned_data("body"),
-                post = post,
 
-            )
-            comment.save()
-            return HttpResponseRedirect(requst.path_info)
-    comments = Comment.objects.filter(post= post)
+    # Handle POST request (only if the user has 'add_comment' permission)
+    if request.method == "POST":
+        return handle_comment_post(request, post)
+
+    # Handle GET request (show the blog post and comments)
+    comments = Comment.objects.filter(post=post)
     context = {
-            "post": post,
-            "comments": comments,
-            "form": CommentForm(),
-        }
+        "post": post,
+        "comments": comments,
+        "form": CommentForm(),
+    }
 
-    return render(requst, "blog/details.html", context)
+    return render(request, "blog/detail.html", context)
+
+# This function handles the comment submission, with permission enforcement
+@permission_required('diyblog.add_comment', raise_exception=True)
+def handle_comment_post(request, post):
+    form = CommentForm(request.POST)
+    if form.is_valid():
+        comment = Comment(
+            author=form.cleaned_data["author"],
+            body=form.cleaned_data["body"],
+            post=post,
+        )
+        comment.save()
+        return HttpResponseRedirect(request.path_info)
+
+    # If the form is invalid, show the blog post again with the form errors
+    comments = Comment.objects.filter(post=post)
+    context = {
+        "post": post,
+        "comments": comments,
+        "form": form,
+    }
+
+    return render(request, "blog/detail.html", context)
     
 # blog_category() will filter blogs based on a specific category
 def blog_category(request, category):
     posts = Post.objects.filter (
-        catergory_filter = category
+        category__category_name = category
     ).order_by("-publish_date")
     context = {
         "category": category,
